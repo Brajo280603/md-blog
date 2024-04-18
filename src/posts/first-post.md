@@ -1,6 +1,6 @@
 ---
 title: First Post
-description: First Post.
+description: Hello World! this is my first blog.
 date: '2024-4-17'
 categories:
   - sveltekit
@@ -13,6 +13,8 @@ published:  true
 Hello 👋
 
 ```js
+
+//javascript
 function helloWorld(){
   console.log("Hello World")
 }

@@ -1,5 +1,6 @@
 <script>
-  import * as config from '$lib/config';
+  import * as config from '$lib/config'
+  import {formatDate} from '$lib/utils'
   export let data
 </script>
 
@@ -12,7 +13,7 @@
     {#each data.posts as post}
     <li class="post">
       <a href="{post.slug}" class="title">{post.title}</a>
-      <p class="date">{post.date}</p>
+      <p class="date">{formatDate(post.date)}</p>
       <p class="description">{post.description}</p>
     </li>
     {/each}
