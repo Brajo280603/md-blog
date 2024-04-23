@@ -1,7 +1,7 @@
 import * as config from '$lib/config'
 
 export async function GET({ fetch }) {
-	const response = await fetch('api/posts')
+	const response = await fetch('api/all_posts')
 	const posts= await response.json()
 
 	const headers = { 'Content-Type': 'application/xml' }

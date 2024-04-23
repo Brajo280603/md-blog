@@ -1,6 +1,10 @@
 import { json } from '@sveltejs/kit'
+import PocketBase from 'pocketbase';
+import { env } from '$env/dynamic/private';
 
-async function getPosts(){
+const pb = new PocketBase(env.POCKETBASE_SERVER_ADDRESS);
+
+async function getPostsMD(){
     let posts = []
     
     const paths = import.meta.glob('/src/posts/*.md', {
@@ -30,10 +34,35 @@ async function getPosts(){
     return posts
 }
 
+async function getPostsDB(){
+
+    let returnRecords = [];
+    // you can also fetch all records at once via getFullList
+    const records = await pb.collection('posts').getFullList({
+        sort: '-created',
+    })
+
+    records.forEach(record=>{
+        let json = {
+            title : record.title,
+            date : record.date,
+            description: record.description,
+            categories: record.categories,
+            published: record.published,
+            slug: record.slug
+        }
+
+        returnRecords.push(json);
+    })
+
+    return returnRecords;
+
+}
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
-    const posts = await getPosts()
+    
+    const posts = await getPostsMD();
 
     return json(posts)
 };
