@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@fontsource/jetbrains-mono": "^5.0.19",
 		"@fontsource/manrope": "^5.0.19",
+		"firebase": "^10.11.0",
 		"lucide-svelte": "^0.368.0",
 		"open-props": "^1.7.2",
 		"pocketbase": "^0.21.2",
