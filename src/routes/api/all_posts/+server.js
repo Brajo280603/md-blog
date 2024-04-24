@@ -1,10 +1,10 @@
 import { json } from '@sveltejs/kit'
 // import { pb } from '$lib/components/pocket/Auth'
 import PocketBase from 'pocketbase';
-import { env } from '$env/dynamic/public';
+import {PUBLIC_POCKETBASE_SERVER_ADDRESS}  from '$env/static/public';
 
 
-const pb = new PocketBase(env.PUBLIC_POCKETBASE_SERVER_ADDRESS);
+const pb = new PocketBase(PUBLIC_POCKETBASE_SERVER_ADDRESS);
 
 
 async function getPostsMD(){

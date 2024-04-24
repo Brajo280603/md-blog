@@ -1,9 +1,9 @@
 import { json } from '@sveltejs/kit'
 
 import PocketBase from 'pocketbase';
-import { env } from '$env/dynamic/public';
+import { PUBLIC_POCKETBASE_SERVER_ADDRESS } from '$env/static/public';
 
-const pb = new PocketBase(env.PUBLIC_POCKETBASE_SERVER_ADDRESS);
+const pb = new PocketBase(PUBLIC_POCKETBASE_SERVER_ADDRESS);
 
 // const pb = new PocketBase(env.POCKETBASE_SERVER_ADDRESS);
 
@@ -32,7 +32,7 @@ async function getPostDB(slug){
 async function getFileDB(collectionId,recordId,fileName){
     // let url_string = `${env.POCKETBASE_SERVER_ADDRESS}/api/files/${records[0].collectionId}/${records[0].id}/${records[0].markdown}`;
 
-    let url_string = `${env.PUBLIC_POCKETBASE_SERVER_ADDRESS}/api/files/${collectionId}/${recordId}/${fileName}`;
+    let url_string = `${PUBLIC_POCKETBASE_SERVER_ADDRESS}/api/files/${collectionId}/${recordId}/${fileName}`;
 
     let file_text = await fetch(url_string);
 

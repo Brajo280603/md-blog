@@ -27,7 +27,7 @@ async function createPost(){
             date: date,
         }
 
-        console.log(post_obj)
+        // console.log(post_obj)
 
         let res = await fetch("/api/create_post",{
                 method: 'POST',

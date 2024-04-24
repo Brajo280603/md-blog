@@ -1,9 +1,9 @@
 import { json } from '@sveltejs/kit'
 import PocketBase from 'pocketbase';
-import { env } from '$env/dynamic/public';
+import { PUBLIC_POCKETBASE_SERVER_ADDRESS } from '$env/static/public';
 
 
-const pb = new PocketBase(env.PUBLIC_POCKETBASE_SERVER_ADDRESS);
+const pb = new PocketBase(PUBLIC_POCKETBASE_SERVER_ADDRESS);
 
 
 
@@ -18,7 +18,7 @@ async function createPost(post){
         "slug": post.slug,
         "markdownString": post.markdown,
     };
-    console.log(data)
+    
     const record = await pb.collection('posts').create(data);
 
     return record;
