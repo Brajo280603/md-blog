@@ -158,3 +158,13 @@ li {
 	border-radius: 8px;
 	tab-size: 2;
 }
+
+article > article > h2{
+	margin-top: var(--size-10) ;
+	margin-bottom: var(--size-2);
+}
+
+article > article > p{
+	margin-top: var(--size-3) ;
+	margin-bottom: var(--size-3);
+}

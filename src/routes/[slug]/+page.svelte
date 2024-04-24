@@ -2,12 +2,18 @@
     /** @type {import('./$types').PageData} */
     import { formatDate } from '$lib/utils'
 
+    import pkg from '@markdoc/markdoc'
     
+    const { parse , transform } = pkg
 
+    import Markdoc from 'sveltejs-markdoc'
 
     export let data;
 
-    console.log(data)
+    let source = data.content;
+    const ast = parse(source);
+    const content = transform(ast)
+
 </script>
 
 <!-- SEO -->
@@ -33,9 +39,12 @@
     </div>
 
     <!-- Post -->
-    <div class="prose">
+    <!-- <div class="prose">
         <svelte:component this={data.content}/>
-    </div>
+    </div> -->
+    <Markdoc {content} />
+
+
 </article>
 
 <style>
@@ -43,6 +52,7 @@
         max-inline-size: var(--size-content-3);
         margin-inline: auto;
     }
+
 
     h1{
         text-transform: capitalize;

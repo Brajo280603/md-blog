@@ -1,7 +1,7 @@
 <script>
   import * as config from '$lib/config'
   import {formatDate} from '$lib/utils'
-  import { Auth } from '$lib/components/Auth'
+  // import { Auth } from '$lib/components/Auth'
   export let data
 </script>
 
@@ -21,7 +21,8 @@
   </ul>
 </section>
 
-<Auth />
+
+<!-- <Auth /> -->
 
 
 <style>

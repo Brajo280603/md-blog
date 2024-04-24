@@ -36,7 +36,6 @@ async function getPostDB(fetch, params){
             meta: post.metadata            
         }
     } catch (e) {
-        console.log(e)
         error(404, `Could not find ${params.slug}`)
     }
 }
@@ -44,8 +43,7 @@ async function getPostDB(fetch, params){
 
 export async function load({ fetch,params }) {
 
-    // console.log(await getPostDB(fetch,params))
-    // return await getPostDB(fetch,params);
-    return await getPostMD(params)
+    return await getPostDB(fetch,params);
+    // return await getPostMD(params)
 
 };

@@ -1,8 +1,11 @@
 import { json } from '@sveltejs/kit'
+// import { pb } from '$lib/components/pocket/Auth'
 import PocketBase from 'pocketbase';
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/public';
 
-const pb = new PocketBase(env.POCKETBASE_SERVER_ADDRESS);
+
+const pb = new PocketBase(env.PUBLIC_POCKETBASE_SERVER_ADDRESS);
+
 
 async function getPostsMD(){
     let posts = []
@@ -47,7 +50,7 @@ async function getPostsDB(){
             title : record.title,
             date : record.date,
             description: record.description,
-            categories: record.categories,
+            categories: record.categories.category,
             published: record.published,
             slug: record.slug
         }
@@ -62,7 +65,8 @@ async function getPostsDB(){
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
     
-    const posts = await getPostsMD();
+    // const posts = await getPostsMD();
+    const posts = await getPostsDB()
 
     return json(posts)
 };

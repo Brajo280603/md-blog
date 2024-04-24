@@ -4,6 +4,7 @@
 
 <footer>
   <p>{config.title} &copy {new Date().getFullYear()}</p>
+  <a href="/create">Create</a>
 </footer>
 
 <style>
@@ -14,5 +15,17 @@
 
   p{
     color: var(--text-2);
+  }
+
+  a{
+    color:inherit;
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px){
+    footer{
+      display: flex;
+      justify-content: space-between;
+    }
   }
 </style>
