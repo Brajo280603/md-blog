@@ -11,16 +11,22 @@ let slug;
 let published;
 let markdown;
 
+
+
 async function createPost(){
 
     let date = new Date();
     date = date.toISOString();
 
+    categories = categories.split(',');
+    categories = categories.filter(category=>!!category);
+    categories = {category: categories};
+
     if(!!title && !!description && !!categories && !!slug && !!published && !!markdown){
         post_obj = {
             title: title,
             description:description,
-            categories: {category: categories.split(',')},
+            categories: categories,
             published: published,
             markdown : markdown,
             slug: slug,
