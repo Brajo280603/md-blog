@@ -68,6 +68,7 @@
         gap:var(--size-3);
         margin-top: var(--size-7);
         flex-wrap: wrap;
+        margin-bottom: 5rem;
     }
 
     .tags > * {
