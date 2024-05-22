@@ -53,7 +53,17 @@ async function createPost(){
 
 }
 
-
+export const snapshot = {
+  capture: () => { return {title,description,categories,slug,markdown,published}},
+  restore: (obj)=> {
+    title = obj.title;
+    description = obj.description;
+    categories = obj.categories;
+    slug = obj.slug;
+    markdown = obj.markdown;
+    published = obj.published;
+  }
+}
 
 </script>
 
